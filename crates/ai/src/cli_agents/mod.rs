@@ -44,6 +44,7 @@ pub const KNOWN: &[(&str, &str, &str)] = &[
     ("qwen-code", "qwen", "Qwen Code"),
     ("goose", "goose", "Goose"),
     ("maki", "maki", "Maki"),
+    ("dsh", "dsh", "DeepSeek Harness"),
     ("aider", "aider", "Aider"),
 ];
 
@@ -1439,6 +1440,6 @@ mod tests {
         assert!(reg.for_agent("claude").resumes() && !reg.for_agent("codex").resumes() && reg.for_agent("antigravity").resumes());
         // Registering an adapter for an existing id replaces that one.
         reg.register(Arc::new(EchoAgent));
-        assert_eq!(format!("{reg:?}"), r#"["claude-code", "codex", "gemini-cli", "opencode", "antigravity", "hermes", "maki", "echo-agent"]"#);
+        assert_eq!(format!("{reg:?}"), r#"["claude-code", "codex", "gemini-cli", "opencode", "antigravity", "hermes", "maki", "dsh", "echo-agent"]"#);
     }
 }

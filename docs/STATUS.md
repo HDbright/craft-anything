@@ -111,6 +111,14 @@ metadata, directory indexes and a real firmware extraction were not newly checke
   with its writing tools, shell and code execution switched off, and Maki refuses anything else
   that would ask (an MCP server's tools, in subagents too) unless the person allowed it in Maki's
   own permissions. It hasn't been run as a `maki -p` builder here.
+- DeepSeek Harness (DSH) has an adapter for its headless profile (`dsh --profile headless --json`),
+  offered when adding a coding agent and found by Detect when `dsh` is on PATH (the desktop app
+  bundles the CLI; its full path can be set as the backend's command). Verified against 0.2.1-rc.5
+  on Windows: a run streams session, status and final events, a failed turn names why, and the
+  next message continues its session with `--session-id`. The model and the API key come from the
+  profile's own configuration (a missing key is named by the run). A live turn with tools hasn't
+  been run (the key lives in the desktop app's credentials service), so a builder gets no tool
+  server yet and its tool progress is unheard (roadmap R2.2).
 - Claude Code is fully wired as a builder; Codex works through its own flags but is unverified on
   a real install and doesn't resume; other agent programs get plain text in and out. API-key
   backends (Anthropic, OpenRouter, OpenAI, local; Kimi K3 through OpenRouter is offered by Detect; a backend chosen as the Extractor takes a Deep-mode game's own files out into `app/Original/` after the study) build with our own loop and the Build tools,

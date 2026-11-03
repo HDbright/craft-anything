@@ -6,10 +6,12 @@
 use super::*;
 
 mod antigravity;
+mod dsh;
 mod hermes;
 mod maki;
 mod opencode;
 pub use antigravity::Antigravity;
+pub use dsh::Dsh;
 pub use hermes::Hermes;
 pub use maki::Maki;
 pub use opencode::OpenCode;
@@ -128,7 +130,7 @@ impl Default for AgentAdapters {
 }
 
 impl AgentAdapters {
-    /// Claude Code, Codex, Gemini CLI, OpenCode, Antigravity, Hermes and Maki.
+    /// Claude Code, Codex, Gemini CLI, OpenCode, Antigravity, Hermes, Maki and DeepSeek Harness.
     pub fn built_in() -> AgentAdapters {
         AgentAdapters {
             adapters: vec![
@@ -139,6 +141,7 @@ impl AgentAdapters {
                 Arc::new(Antigravity),
                 Arc::new(Hermes),
                 Arc::new(Maki),
+                Arc::new(Dsh),
             ],
         }
     }

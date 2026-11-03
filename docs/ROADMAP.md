@@ -307,6 +307,14 @@ Owner: open · Status: in progress
       default once that passes
 - [ ] Aider has no adapter, so the plain one hands it the prompt as a file name, and it can open a
       browser sign-in nobody agreed to (#72). Give it an adapter, or stop offering it
+- [x] DeepSeek Harness (DSH) has an adapter (`dsh --profile headless --json`, checked against
+      0.2.1-rc.5 on Windows: a run streams `session`, `status` and `final` events, a failed turn
+      names why in its `turn_end` reason, and the next message continues with `--session-id`)
+- [ ] DSH on a live turn (its key lives in the desktop app's credentials service): what a turn
+      with tools streams (so its progress is heard), handing a builder our tool server through a
+      generated `--patch` overlay (its MCP clients go in a patch list, not a flag), what an
+      unfindable `--session-id` looks like, and finding the desktop install's bundled CLI when
+      `dsh` isn't on PATH
 - [ ] Codex (#499): in a chat the tool server has no active target, tools turned on with
       `enable_toolset` can't be called, and `rebuild_start` is refused by the approval policy. The
       reporter attached a patch for chat continuity; look at that first
